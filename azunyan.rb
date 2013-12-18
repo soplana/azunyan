@@ -118,6 +118,7 @@ end
 class Azunyan
   def initialize
     @my = AzuMongo.new
+    @probability = 100
     up
   end
 
@@ -184,14 +185,14 @@ class Azunyan
 
   def react?
     a = Array.new(@probability, true)
-    b = Array.new(100 - @probability, true)
+    b = Array.new(100 - @probability, false)
     (a+b).sample
   end
 
   def set_probability probability
     return "は？" if probability !~ /^\d*$/
     probability = probability.to_i
-    return "#{probability}%とかワロタｗｗｗ小卒かよｗｗ" if probability <= 100
+    return "#{probability}%とかワロタｗｗｗ小卒かよｗｗ" if 100 < probability
     @probability = probability
     return "先輩, #{probability}%に設定しました！"
   end
