@@ -173,11 +173,27 @@ class Azunyan
     when "halt"
       halt
       "(´；ω；｀)"
+    when "probability"
+      order.nil? ? "今の反応率は#{@probability}%ですよ先輩！" : set_probability(order)
     when "-h"
-      "-p (pattern登録), -r (reaction登録), -d(delete), -ls(list), up(話し始める), halt(黙る), remove_all(全部忘れる) "
+      "-p (pattern登録), -r (reaction登録), -d(delete), -ls(list), up(話し始める), halt(黙る), remove_all(全部忘れる), probability(反応率の設定, 確認)"
     else
       "は？"
     end
+  end
+
+  def react?
+    a = Array.new(@probability, true)
+    b = Array.new(100 - @probability, true)
+    (a+b).sample
+  end
+
+  def set_probability probability
+    return "は？" if probability !~ /^\d*$/
+    probability = probability.to_i
+    return "#{probability}%とかワロタｗｗｗ小卒かよｗｗ" if probability <= 100
+    @probability = probability
+    return "先輩, #{probability}%に設定しました！"
   end
 
   def remove
@@ -223,12 +239,14 @@ bot = Cinch::Bot.new do
     else
       @@azu.all_reg.each do |k, v|
         if v[:regexp] =~ m.params[1]
-          msg = "@#{m.user.nick} #{v[:messages].sample}"
+          sleep(2)
+          msg = @@azu.react? ? "@#{m.user.nick} #{v[:messages].sample}" : nil
         end
       end
     end
-    sleep(2)
-    m.reply msg
+    if !msg.nil?
+      m.reply msg
+    end
   end
 end
 
