@@ -1,0 +1,7 @@
+user:
+  name: "soplana"
+  password: "hoge"
+database:
+  name: "azunyan"
+  host: "paulo.mongohq.com"
+  port: 10089
