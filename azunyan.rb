@@ -149,19 +149,19 @@ class Azunyan
   def command _command
     commands = _command.split(" ")
     command, order, params = commands[1], commands[2], commands[3..-1]
-    if order == "--h"
+    if order == "-h"
       return "[pattern, reactionに紐づくユニーク文字列] [パターン...]"
     end
 
     case command
-    when "pattern"
+    when "-p"
       learn_pattern order, params
-    when "reaction"
+    when "-r"
       learn_reaction order, params
     when "remove_all"
       remove
       "全部忘れました！"
-    when "--h"
+    when "-h"
       "pattern, reaction"
     else
       "は？"
