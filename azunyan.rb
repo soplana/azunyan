@@ -149,6 +149,10 @@ class Azunyan
   def command _command
     commands = _command.split(" ")
     command, order, params = commands[1], commands[2], commands[3..-1]
+    if order == "--h"
+      return "[pattern, reactionに紐づくユニーク文字列] [パターン...]"
+    end
+
     case command
     when "pattern"
       learn_pattern order, params
@@ -157,6 +161,8 @@ class Azunyan
     when "remove_all"
       remove
       "全部忘れました！"
+    when "--h"
+      "pattern, reaction"
     else
       "は？"
     end
@@ -174,7 +180,7 @@ bot = Cinch::Bot.new do
   configure do |c|
     c.server = "irc.leeno.jp"
     c.channels = ["#member, 831mogumogu"]
-    c.nick     = "azucat"
+    c.nick     = "azunyan"
     #c.plugins.plugins = [Hello]
   end
 

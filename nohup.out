@@ -1,0 +1,99 @@
+azunyan.rb:179: warning: class variable access from toplevel
+[2013/12/18 15:08:11.005] !! [on handler] Registering handler with pattern `#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>`, reacting on `message`
+[2013/12/18 15:08:11.005] !! [on handler] Registering handler with pattern `#<Cinch::Pattern:0x00000002852a80 @prefix=nil, @pattern=//, @suffix=nil>`, reacting on `connect`
+[2013/12/18 15:08:11.005] !! [on handler] Registering handler with pattern `#<Cinch::Pattern:0x00000002851fb8 @prefix=nil, @pattern=//, @suffix=nil>`, reacting on `disconnect`
+[2013/12/18 15:08:11.006] II Connecting to irc.leeno.jp:6667
+[2013/12/18 15:08:11.040] << CAP LS 
+[2013/12/18 15:08:11.040] << NICK azunyan 
+[2013/12/18 15:08:11.040] << USER cinch 0 * :cinch
+[2013/12/18 15:08:11.106] >> :irc.leeno.jp 001 azunyan :Welcome to the Internet Relay Network azunyan!~cinch@v-183-181-34-65.ub-freebit.net
+[2013/12/18 15:08:11.107] >> :irc.leeno.jp 002 azunyan :Your host is irc.leeno.jp, running version ngircd-16 (x86_64/redhat/linux-gnu)
+[2013/12/18 15:08:11.107] II Detected IRCd: ngircd
+[2013/12/18 15:08:11.107] >> :irc.leeno.jp 003 azunyan :This server has been started Thu Dec 20 2012 at 12:17:24 (JST)
+[2013/12/18 15:08:11.107] >> :irc.leeno.jp 004 azunyan irc.leeno.jp ngircd-16 aiorsw biIklmnoPstvz 
+[2013/12/18 15:08:11.108] >> :irc.leeno.jp 005 azunyan RFC2812 IRCD=ngIRCd CASEMAPPING=ascii PREFIX=(ov)@+ CHANTYPES=#&+ CHANMODES=bI,k,l,imnPst CHANLIMIT=#&+:10 :are supported on this server
+[2013/12/18 15:08:11.108] >> :irc.leeno.jp 005 azunyan CHANNELLEN=50 NICKLEN=9 TOPICLEN=490 AWAYLEN=127 KICKLEN=400 PENALTY :are supported on this server
+[2013/12/18 15:08:11.109] >> :irc.leeno.jp 251 azunyan :There are 7 users and 0 services on 1 servers
+[2013/12/18 15:08:11.109] >> :irc.leeno.jp 254 azunyan 2 :channels formed
+[2013/12/18 15:08:11.109] >> :irc.leeno.jp 255 azunyan :I have 7 users, 0 services and 0 servers
+[2013/12/18 15:08:11.109] >> :irc.leeno.jp 265 azunyan 7 10 :Current local users: 7, Max: 10
+[2013/12/18 15:08:11.109] >> :irc.leeno.jp 266 azunyan 7 10 :Current global users: 7, Max: 10
+[2013/12/18 15:08:11.110] >> :irc.leeno.jp 250 azunyan :Highest connection count: 10 (8814 connections received)
+[2013/12/18 15:08:11.110] >> :irc.leeno.jp 422 azunyan :MOTD file is missing
+[2013/12/18 15:08:11.120] !! [New thread] For #<Cinch::Handler @event=:connect pattern=#<Cinch::Pattern:0x00000002852a80 @prefix=nil, @pattern=//, @suffix=nil>>: #<Thread:0x000000027f0808> -- 1 in total.
+[2013/12/18 15:08:11.120] !! [timer] Starting timer <Cinch::Timer 0/1 shots, 0s interval, threaded, not started, block: #<Proc:0x00000002852be8@/home/leeno/azunyan/bundle/ruby/1.9.1/gems/cinch-2.0.11/lib/cinch/bot.rb:264>>
+[2013/12/18 15:08:11.120] !! [Thread done] For #<Cinch::Handler @event=:connect pattern=#<Cinch::Pattern:0x00000002852a80 @prefix=nil, @pattern=//, @suffix=nil>>: #<Thread:0x000000027f0808> -- 0 remaining.
+[2013/12/18 15:08:11.120] !! [New thread] For #<Cinch::Handler @event=:connect pattern=#<Cinch::Pattern:0x00000002852a80 @prefix=nil, @pattern=//, @suffix=nil>>: #<Thread:0x00000002765b68> -- 1 in total.
+[2013/12/18 15:08:11.120] !! [Thread done] For #<Cinch::Handler @event=:connect pattern=#<Cinch::Pattern:0x00000002852a80 @prefix=nil, @pattern=//, @suffix=nil>>: #<Thread:0x00000002765b68> -- 0 remaining.
+[2013/12/18 15:08:11.121] << JOIN #member, 831mogumogu 
+[2013/12/18 15:08:12.147] >> :azunyan!~cinch@v-183-181-34-65.ub-freebit.net JOIN :#member
+[2013/12/18 15:08:12.148] >> :irc.leeno.jp 332 azunyan #member :女はjpgに限る
+[2013/12/18 15:08:12.148] >> :irc.leeno.jp 333 azunyan #member criff_ 1382975833 
+[2013/12/18 15:08:12.148] >> :irc.leeno.jp 353 azunyan = #member :azunyan soplana_j ishiki criff bascibot criff1 hash
+[2013/12/18 15:08:12.149] >> :irc.leeno.jp 366 azunyan #member :End of NAMES list
+[2013/12/18 15:08:12.150] << WHO #member 
+[2013/12/18 15:08:12.150] << MODE #member +b 
+[2013/12/18 15:08:12.150] << MODE #member 
+[2013/12/18 15:08:12.178] >> :irc.leeno.jp 352 azunyan #member ~cinch v-183-181-34-65.ub-freebit.net irc.leeno.jp azunyan H :0 cinch
+[2013/12/18 15:08:12.179] >> :irc.leeno.jp 352 azunyan #member ~soplana_ p6124-ipngn101marunouchi.tokyo.ocn.ne.jp irc.leeno.jp soplana_j H :0 sop
+[2013/12/18 15:08:12.179] >> :irc.leeno.jp 352 azunyan #member ~cinch v-183-181-34-65.ub-freebit.net irc.leeno.jp ishiki H :0 cinch
+[2013/12/18 15:08:12.179] >> :irc.leeno.jp 352 azunyan #member ~criff 172.70.147.124.dy.bbexcite.jp irc.leeno.jp criff H :0 criff
+[2013/12/18 15:08:12.179] >> :irc.leeno.jp 352 azunyan #member ~criff www39383u.sakura.ne.jp irc.leeno.jp bascibot H :0 bascibot
+[2013/12/18 15:08:12.180] >> :irc.leeno.jp 352 azunyan #member ~criff www39383u.sakura.ne.jp irc.leeno.jp criff1 H :0 criff
+[2013/12/18 15:08:12.180] >> :irc.leeno.jp 352 azunyan #member ~hash4lee www7001uf.sakura.ne.jp irc.leeno.jp hash H :0 ts
+[2013/12/18 15:08:12.180] >> :irc.leeno.jp 315 azunyan #member :End of WHO list
+[2013/12/18 15:08:13.219] >> :irc.leeno.jp 368 azunyan #member :End of channel ban list
+[2013/12/18 15:08:14.249] >> :irc.leeno.jp 324 azunyan #member +Pnk 831mogumogu 
+[2013/12/18 15:08:20.898] >> :soplana_j!~soplana_@p6124-ipngn101marunouchi.tokyo.ocn.ne.jp PRIVMSG #member :azunyan --h
+[2013/12/18 15:08:20.899] !! [New thread] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x0000000299d1b0> -- 1 in total.
+azunyan.rb:189: warning: class variable access from toplevel
+azunyan.rb:190: warning: class variable access from toplevel
+[2013/12/18 15:08:20.900] << PRIVMSG #member :pattern, reaction
+[2013/12/18 15:08:21.415] !! [Thread done] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x0000000299d1b0> -- 0 remaining.
+[2013/12/18 15:08:29.772] >> :soplana_j!~soplana_@p6124-ipngn101marunouchi.tokyo.ocn.ne.jp PRIVMSG #member :azunyan pattern --h
+[2013/12/18 15:08:29.773] !! [New thread] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x00000002963ac8> -- 1 in total.
+azunyan.rb:189: warning: class variable access from toplevel
+azunyan.rb:190: warning: class variable access from toplevel
+[2013/12/18 15:08:29.775] << PRIVMSG #member :[pattern, reactionに紐づくユニーク文字列] [パターン...]
+[2013/12/18 15:08:29.942] !! [Thread done] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x00000002963ac8> -- 0 remaining.
+[2013/12/18 15:08:50.346] >> :soplana_j!~soplana_@p6124-ipngn101marunouchi.tokyo.ocn.ne.jp PRIVMSG #member :azunyan remove_all
+[2013/12/18 15:08:50.347] !! [New thread] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x0000000291c0b0> -- 1 in total.
+azunyan.rb:189: warning: class variable access from toplevel
+azunyan.rb:190: warning: class variable access from toplevel
+[2013/12/18 15:08:50.527] << PRIVMSG #member :全部忘れました！
+[2013/12/18 15:08:50.693] !! [Thread done] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x0000000291c0b0> -- 0 remaining.
+[2013/12/18 15:09:28.411] >> :soplana_j!~soplana_@p6124-ipngn101marunouchi.tokyo.ocn.ne.jp PRIVMSG #member :azunyan pattern harane はらへ harahe 腹減った おなかすいた
+[2013/12/18 15:09:28.412] !! [New thread] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x000000028f5f28> -- 1 in total.
+azunyan.rb:189: warning: class variable access from toplevel
+azunyan.rb:190: warning: class variable access from toplevel
+[2013/12/18 15:09:28.746] << PRIVMSG #member :[はらへ,harahe,腹減った,おなかすいた]ですね！覚えました！
+[2013/12/18 15:09:28.913] !! [Thread done] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x000000028f5f28> -- 0 remaining.
+[2013/12/18 15:09:46.246] >> :soplana_j!~soplana_@p6124-ipngn101marunouchi.tokyo.ocn.ne.jp PRIVMSG #member :azunyan remove_all
+[2013/12/18 15:09:46.246] !! [New thread] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x000000028b9190> -- 1 in total.
+azunyan.rb:189: warning: class variable access from toplevel
+azunyan.rb:190: warning: class variable access from toplevel
+[2013/12/18 15:09:46.415] << PRIVMSG #member :全部忘れました！
+[2013/12/18 15:09:46.586] !! [Thread done] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x000000028b9190> -- 0 remaining.
+[2013/12/18 15:09:52.934] >> :soplana_j!~soplana_@p6124-ipngn101marunouchi.tokyo.ocn.ne.jp PRIVMSG #member :azunyan pattern harahe はらへ harahe 腹減った おなかすいた
+[2013/12/18 15:09:52.935] !! [New thread] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x0000000289d350> -- 1 in total.
+azunyan.rb:189: warning: class variable access from toplevel
+azunyan.rb:190: warning: class variable access from toplevel
+[2013/12/18 15:09:53.270] << PRIVMSG #member :[はらへ,harahe,腹減った,おなかすいた]ですね！覚えました！
+[2013/12/18 15:09:53.436] !! [Thread done] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x0000000289d350> -- 0 remaining.
+[2013/12/18 15:10:11.040] << PING 0 
+[2013/12/18 15:10:11.064] >> :irc.leeno.jp PONG irc.leeno.jp :0
+[2013/12/18 15:10:18.098] >> :soplana_j!~soplana_@p6124-ipngn101marunouchi.tokyo.ocn.ne.jp PRIVMSG #member :azunyan reaction harahe さっき食べたばかりじゃないですかー！
+[2013/12/18 15:10:18.099] !! [New thread] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x00000002889c10> -- 1 in total.
+azunyan.rb:189: warning: class variable access from toplevel
+azunyan.rb:190: warning: class variable access from toplevel
+[2013/12/18 15:10:18.433] << PRIVMSG #member :[さっき食べたばかりじゃないですかー！]ですね！覚えました！
+[2013/12/18 15:10:18.599] !! [Thread done] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x00000002889c10> -- 0 remaining.
+[2013/12/18 15:10:23.804] >> :soplana_j!~soplana_@p6124-ipngn101marunouchi.tokyo.ocn.ne.jp PRIVMSG #member :はらへ
+[2013/12/18 15:10:23.806] !! [New thread] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x00000002851838> -- 1 in total.
+azunyan.rb:192: warning: class variable access from toplevel
+[2013/12/18 15:10:23.806] !! [Thread done] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x00000002851838> -- 0 remaining.
+[2013/12/18 15:10:23.807] << PRIVMSG #member :@soplana_j さっき食べたばかりじゃないですかー！
+[2013/12/18 15:10:28.838] >> :soplana_j!~soplana_@p6124-ipngn101marunouchi.tokyo.ocn.ne.jp PRIVMSG #member :なるほど
+[2013/12/18 15:10:28.839] !! [New thread] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x0000000280d1d8> -- 1 in total.
+azunyan.rb:192: warning: class variable access from toplevel
+[2013/12/18 15:10:28.839] !! [Thread done] For #<Cinch::Handler @event=:message pattern=#<Cinch::Pattern:0x00000002855ca8 @prefix=nil, @pattern=/.*/, @suffix=nil>>: #<Thread:0x0000000280d1d8> -- 0 remaining.
