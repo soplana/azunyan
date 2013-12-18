@@ -46,8 +46,14 @@ class Command < Collection
     @collection.remove({order: order})
   end
 
-  def ls
-    all.map{|cm| cm["order"]}
+  def ls order=""
+    if order.nil?
+      all.map{|cm| cm["order"]}.join(", ")
+    else
+      cm = find_by_order(order)
+      return "しらんがな" if cm.nil?
+      "pattern:#{cm["pattern"].join(",")} reaction:#{cm["reaction"].join(",")}"[1..100]
+    end
   end
 
   private
@@ -157,7 +163,7 @@ class Azunyan
       @my.commands.drop_command order
       "はい、#{order}に関する事は全部忘れました！"
     when "-ls"
-      @my.commands.ls.join(", ")
+      @my.commands.ls(order)
     when "remove_all"
       remove
       "全部忘れました！"
