@@ -162,7 +162,7 @@ class Azunyan
       remove
       "全部忘れました！"
     when "-h"
-      "pattern, reaction"
+      "-p (pattern登録), -r (reaction登録)"
     else
       "は？"
     end
