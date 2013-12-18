@@ -112,6 +112,15 @@ end
 class Azunyan
   def initialize
     @my = AzuMongo.new
+    up
+  end
+
+  def up
+    @move = true
+  end
+
+  def halt
+    @move = false
   end
 
   def learn_pattern order, pattern
@@ -123,6 +132,7 @@ class Azunyan
   end
 
   def all_reg
+    return {} if @move == false
     @all ||= convert_command
   end
 
@@ -151,8 +161,14 @@ class Azunyan
     when "remove_all"
       remove
       "全部忘れました！"
+    when "up"
+      up
+      "✧*。ヾ(｡>﹏<｡)ﾉﾞ。*✧"
+    when "halt"
+      halt
+      "(´；ω；｀)"
     when "-h"
-      "-p (pattern登録), -r (reaction登録), -d(delete), -ls(list)"
+      "-p (pattern登録), -r (reaction登録), -d(delete), -ls(list), up(話し始める), halt(黙る), remove_all(全部忘れる) "
     else
       "は？"
     end
@@ -195,7 +211,7 @@ bot = Cinch::Bot.new do
 
   on :message, /.*/ do |m|
     msg = ""
-    if m.params[1] =~ /^azunyan\s.*/
+    if m.params[1] =~ /^azunyan\s.*|^azu\s.*/
       msg = @@azu.command(m.params[1])
       @@azu.reload!
     else
