@@ -46,6 +46,10 @@ class Command < Collection
     @collection.remove({order: order})
   end
 
+  def ls
+    all.map{|cm| "#{cm["order"]}:#{cm["reaction"][0]}"}
+  end
+
   private
   def create order, regexp, type
     if doc = find_by_order(order)
@@ -142,11 +146,13 @@ class Azunyan
     when "-d"
       @my.commands.drop_command order
       "はい、#{order}に関する事は全部忘れました！"
+    when "-ls"
+      @my.commands.ls.join(", ")
     when "remove_all"
       remove
       "全部忘れました！"
     when "-h"
-      "-p (pattern登録), -r (reaction登録), -d(delete)"
+      "-p (pattern登録), -r (reaction登録), -d(delete), -ls(list)"
     else
       "は？"
     end
