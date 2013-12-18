@@ -47,7 +47,7 @@ class Command < Collection
   end
 
   def ls
-    all.map{|cm| "#{cm["order"]}:#{cm["reaction"][0]}"}
+    all.map{|cm| cm["order"]}
   end
 
   private
