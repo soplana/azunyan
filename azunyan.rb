@@ -42,8 +42,8 @@ class Command < Collection
     @collection.find(order: order).first
   end
 
-  def help
-    "azunyan [command] [command名（ユニーク）] [一致パターン]"
+  def drop_command order
+    @collection.remove({order: order})
   end
 
   private
@@ -111,45 +111,26 @@ class Azunyan
   end
 
   def learn_pattern order, pattern
-    if @my.commands.create_pattern(order, pattern)
-      "[#{pattern.join(",")}]ですね！覚えました！"
-    else
-      "ば、馬鹿にしないでください先輩！そんなことくらいもう知ってます＞＜"
-    end
+    learn(order, pattern, "pattern")
   end
 
   def learn_reaction order, reaction
-    if @my.commands.create_reaction(order, reaction)
-      "[#{reaction.join(",")}]ですね！覚えました！"
-    else
-      "ば、馬鹿にしないでください先輩！そんなことくらいもう知ってます＞＜"
-    end
+    learn(order, reaction, "reaction")
   end
 
   def all_reg
-    @all ||= @my.commands.all.inject({}) do |data, com|
-      data[com["order"]] = {
-        regexp: Regexp.union(com["pattern"]), 
-        messages: com["reaction"]
-      }
-      data 
-    end
+    @all ||= convert_command
   end
 
   def reload!
-    @all = @my.commands.all.inject({}) do |data, com|
-      data[com["order"]] = {
-        regexp: Regexp.union(com["pattern"]), 
-        messages: com["reaction"]
-      }
-      data 
-    end
+    @all = convert_command
   end
 
   def command _command
     commands = _command.split(" ")
     command, order, params = commands[1], commands[2], commands[3..-1]
     if order == "-h"
+      return "[pattern, reactionに紐づくユニーク文字列]" if command == "-d"
       return "[pattern, reactionに紐づくユニーク文字列] [パターン...]"
     end
 
@@ -158,11 +139,14 @@ class Azunyan
       learn_pattern order, params
     when "-r"
       learn_reaction order, params
+    when "-d"
+      @my.commands.drop_command order
+      "はい、#{order}に関する事は全部忘れました！"
     when "remove_all"
       remove
       "全部忘れました！"
     when "-h"
-      "-p (pattern登録), -r (reaction登録)"
+      "-p (pattern登録), -r (reaction登録), -d(delete)"
     else
       "は？"
     end
@@ -170,6 +154,25 @@ class Azunyan
 
   def remove
     @my.commands.remove_all
+  end
+
+  private
+  def learn order, params, type
+    if @my.commands.__send__("create_#{type}", order, params)
+      "[#{params.join(",")}]ですね！覚えました！"
+    else
+      "ば、馬鹿にしないでください先輩！そんなことくらいもう知ってます＞＜"
+    end
+  end
+
+  def convert_command
+    @my.commands.all.inject({}) do |data, com|
+      data[com["order"]] = {
+        regexp: Regexp.union(com["pattern"]), 
+        messages: com["reaction"]
+      }
+      data 
+    end
   end
 end
 
@@ -185,16 +188,19 @@ bot = Cinch::Bot.new do
   end
 
   on :message, /.*/ do |m|
+    msg = ""
     if m.params[1] =~ /^azunyan\s.*/
-      m.reply @@azu.command(m.params[1])
+      msg = @@azu.command(m.params[1])
       @@azu.reload!
     else
       @@azu.all_reg.each do |k, v|
         if v[:regexp] =~ m.params[1]
-          m.reply "@#{m.user.nick} #{v[:messages].sample}"
+          msg = "@#{m.user.nick} #{v[:messages].sample}"
         end
       end
     end
+    sleep(2)
+    m.reply msg
   end
 end
 
