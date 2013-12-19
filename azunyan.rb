@@ -76,7 +76,7 @@ class Lexical < Collection
 end
 
 class AzuMongo
-  attr_accessor :commands, :lexicals
+  attr_accessor :commands, :lexicals, :settings
 
   def initialize
     setting_load
@@ -116,9 +116,12 @@ class AzuMongo
 end
 
 class Azunyan
+  attr_accessor :core
+
   def initialize
     @my = AzuMongo.new
     @probability = 100
+    @core = @my
     up
   end
 
@@ -226,10 +229,9 @@ end
 bot = Cinch::Bot.new do
   @@azu = Azunyan.new
   configure do |c|
-    c.server = "irc.leeno.jp"
-    c.channels = ["#member, 831mogumogu"]
+    c.server   = @@azu.core.settings["irc"]["server"]
+    c.channels = @@azu.core.settings["irc"]["channels"]
     c.nick     = "azunyan"
-    #c.plugins.plugins = [Hello]
   end
 
   on :message, /.*/ do |m|
