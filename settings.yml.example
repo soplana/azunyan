@@ -1,7 +1,10 @@
 user:
-  name: "soplana"
-  password: "hoge"
+  name: 'soplana'
+  password: 'hoge'
 database:
-  name: "azunyan"
-  host: "paulo.mongohq.com"
+  name: 'azunyan'
+  host: 'paulo.mongohq.com'
   port: 10089
+irc:
+  server: 'example.com'
+  channels: '#example' or '#example password'
