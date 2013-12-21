@@ -85,7 +85,7 @@ class Azunyan::Model::Command < Azunyan::Model::Base
       all.map{|cm| cm["order"]}.join(", ")
     else
       cm = find_by_order(order)
-      return "‚È‚ñ‚â‚»‚ê" if cm.nil?
+      return "‚í‚©‚ñ‚È‚¢‚Å‚·„ƒ" if cm.nil?
       "pattern:#{cm["pattern"].join(",")} reaction:#{cm["reaction"].join(",")}"[1..100]
     end
   end
