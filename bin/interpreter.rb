@@ -52,6 +52,14 @@ class Azunyan::Interpreter
     @model.command.remove_all
   end
 
+  def drop_command order
+    @model.command.drop_command order
+  end
+
+  def ls order
+    @model.command.ls order
+  end
+
   private
   def learn order, params, type
     if @model.command.__send__("create_#{type}", order, params)
