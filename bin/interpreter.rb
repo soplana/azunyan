@@ -9,6 +9,10 @@ class Azunyan::Interpreter
     up
   end
 
+  def channel_with_password
+    "#{@model.settings["irc"]["channel"]} #{@model.settings["irc"]["password"]}"
+  end
+
   def up
     @move = true
   end
