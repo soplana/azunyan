@@ -6,12 +6,12 @@ bot = Cinch::Bot.new do
   configure do |c|
     c.server   = @@azu.model.settings["irc"]["server"]
     c.channels = [@@azu.model.settings["irc"]["channels"]]
-    c.nick     = "tesnyan"
+    c.nick     = "azunyan"
   end
 
   on :message, /.*/ do |m|
     msg = ""
-    if m.params[1] =~ /^tesnyan\s.*|^tes\s.*/
+    if m.params[1] =~ /^azunyan\s.*|^azu\s.*/
       msg = @@azu.command.run(m.params[1])
       @@azu.reload!
     else
