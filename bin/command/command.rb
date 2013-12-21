@@ -74,6 +74,13 @@ module Azunyan::Command
     end
   end
 
+  class PatternDelete < Base
+    private
+    def __run__
+      '未実装です＞＜'
+    end
+  end
+
   class Reaction < Base
     def help
       '-r [リアクションに紐づくユニーク文字列(-lsで確認)] [リアクション...]'
@@ -82,6 +89,13 @@ module Azunyan::Command
     private
     def __run__
        @interpreter.learn_reaction @parser.order, @parser.params
+    end
+  end
+
+  class ReactionDelete < Base
+    private
+    def __run__
+      '未実装です＞＜'
     end
   end
 
