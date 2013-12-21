@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module Azunyan::Command 
   class Core
     class << self
@@ -32,7 +33,7 @@ module Azunyan::Command
         "全部忘れました！"
       when "up"
         up
-        "✧*。ヾ(｡>﹏<｡)ﾉﾞ。*✧"
+        "✧*。ヾ(。>﹏<。)ノ゛。*✧"
       when "halt"
         halt
         "(´；ω；｀)"
