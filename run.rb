@@ -5,7 +5,7 @@ bot = Cinch::Bot.new do
   @@azu = Azunyan::Interpreter.new
   configure do |c|
     c.server   = @@azu.model.settings["irc"]["server"]
-    c.channels = [@@azu.model.settings["irc"]["channels"]]
+    c.channels = ["#{@@azu.model.settings["irc"]["channel"]} #{@@azu.model.settings["irc"]["password"]}"]
     c.nick     = "azunyan"
   end
 
@@ -23,7 +23,7 @@ bot = Cinch::Bot.new do
       end
     end
     if !msg.nil?
-      m.reply msg
+      m.reply "/notice #{@@azu.model.settings["irc"]["channel"]} #{msg}"
     end
   end
 end

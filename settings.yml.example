@@ -7,4 +7,5 @@ database:
   port: 10089
 irc:
   server: 'example.com'
-  channels: '#example' or '#example password'
+  channel: '#example'
+  password: 'password'
