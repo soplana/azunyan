@@ -12,7 +12,7 @@ bot = Cinch::Bot.new do
   on :message, /.*/ do |m|
     msg = ""
     if m.params[1] =~ /^azunyan\s.*|^azu\s.*/
-      m.target.notice(@@azu.command.run(m.params[1]))
+      @@azu.command.run(m)
       @@azu.reload!
     else
       @@azu.all_reg.each do |k, v|

@@ -2,8 +2,8 @@
 module Azunyan::Command 
   class Parser
     attr_accessor :command, :order, :params
-    def initialize cmd
-      cmds = cmd.split
+    def initialize message 
+      cmds = message.params[1].split
       @command, @order, @params = cmds[1], cmds[2], cmds[3..-1]
     end
   end
@@ -26,28 +26,35 @@ module Azunyan::Command
         '-h'   => Help,
         'up'   => Up,
         'halt' => Halt,
+        'weather' => Weather,
         'probability' => Probability
       }
     end
 
-    def run cmd
-      instance = create_command_instance Azunyan::Command::Parser.new(cmd)
+    def run message
+      instance = create_command_instance Azunyan::Command::Parser.new(message), message
       instance.run
-      instance.result
+      if instance.message_type == :notice
+        instance.message.target.notice instance.result
+      else
+        instance.message.reply instance.result
+      end
+
     #rescue
     
     #'は？'
     end
 
     private
-    def create_command_instance parser
-      @bin[ parser.command ].new(@interpreter, parser)
+    def create_command_instance parser, message
+      @bin[ parser.command ].new(@interpreter, parser, message)
     end
   end
 
   class Base
-    def initialize interpreter, parser
-      @interpreter, @parser = interpreter, parser
+    attr_accessor :message
+    def initialize interpreter, parser, message
+      @interpreter, @parser, @message = interpreter, parser, message
     end
 
     def run
@@ -60,6 +67,10 @@ module Azunyan::Command
 
     def help
       'せ、先輩... すみません... わかんないです...'
+    end
+
+    def message_type
+      :notice
     end
   end
 
@@ -163,9 +174,28 @@ module Azunyan::Command
     end
   end
 
-  class  Help < Base
+  class Help < Base
     def result
       "-p(pattern登録), -r(reaction登録), -d(delete), -ls(list), up(話し始める), halt(黙る), remove_all(全部忘れる), probability(反応率の設定, 確認)"
+    end
+
+    private
+    def __run__
+    end
+  end
+
+  class Weather < Base
+    def result
+      uri    = URI.parse('http://weather.livedoor.com/forecast/webservice/json/v1?city=130010')
+      result = JSON.parse(Net::HTTP.get(uri))['forecasts'][0]
+      
+      min = result['temperature']['min'].nil? ? '?' : result['temperature']['min']['celsius']
+      max = result['temperature']['max'].nil? ? '?' : result['temperature']['max']['celsius']
+      "はい先輩！今日の天気は[#{result['telop']}]です！ 気温は#{min}-#{max}くらいだそうです！"
+    end
+
+    def message_type
+      :reply
     end
 
     private
